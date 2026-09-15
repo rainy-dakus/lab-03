@@ -30,6 +30,9 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     CityListScreen(
                         cities = cityRepository.cities,
+                        onAddCity = { cityRepository.addCity(it) },
+                        onEditCity = { old, edited -> cityRepository.editCity(oldCity = old, editedCity = edited) },
+                        onRemoveCity = { toRemove -> cityRepository.removeCity(city = toRemove) },
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
